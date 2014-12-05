@@ -1,0 +1,27 @@
+water.cpp written by Sean Rowe
+December 3, 2014
+CpSc404 Fall 2014
+
+Description:
+Water.cpp takes an input image and first flips the image of the x-axis. The image is then 
+applied a unique warp that calculates sine and cosine waves on the pixels every 15 pixels.
+The sine warp is applied first, then the cosine warp and so on until the bottom of the image
+is reached. After this a gaussian blur is applied to the lower half of the image and the 
+last five pixel rows of the top half. A simple tonemap is also applied to the same set of
+pixels. The last 5 pixel rows of the top half are included to make the water ripple effect
+appear more seamless. The code will work with both 3 channel and 4 channel images. 
+
+Press the 'w' key to perform the warp
+Press the 's' key to save the new image if specified
+Press the 'q' key to quit
+
+water.cpp takes 2 command line arguments: the input image and an optional output image
+
+Usage: 
+./water inputimage.jpg [output.jpg]
+
+Known Issues:
+The ripple warp appers to grab the lower left corner and put it on the right hand side for 
+some reason. The tonemap is relatively simple and does not appear to alter the bottom half
+significantly. The blur allows creates a pixel offset on the lower half.
+ 
